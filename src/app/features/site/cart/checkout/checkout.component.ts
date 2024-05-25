@@ -113,16 +113,21 @@ export class CheckoutComponent {
   }
 
   buy(): void {
+    this.loaderService.setVisible(true);
     this.products.forEach((product) => {
       product = { ...product, stock: product.stock - product.amount };
 
       this.productsService.updateProduct(product);
       this.cartService.clearCart();
-      this.toastService.setConfig({ show: true, text: 'purchaseSuccessfully' });
 
       setTimeout(() => {
+        this.loaderService.setVisible(false);
+        this.toastService.setConfig({
+          show: true,
+          text: 'purchaseSuccessfully',
+        });
         this.router.navigate(['/site/cart/thanks']);
-      }, 3000);
+      }, 1000);
     });
   }
 }

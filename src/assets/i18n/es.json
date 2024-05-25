@@ -58,5 +58,6 @@
   "signIn": "Iniciar sesión",
   "doYouAlreadyHaveAnAccountSignInHere": "¿Ya tienes una cuenta? inicia sesión aquí",
   "pageNotFound": "Página no encontrada",
-  "youDontHaveAccess": "No tienes permisos o no has iniciado sesión"
+  "youDontHaveAccess": "No tienes permisos o no has iniciado sesión",
+  "create": "Crear"
 }

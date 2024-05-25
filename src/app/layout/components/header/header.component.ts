@@ -39,7 +39,7 @@ export class HeaderComponent implements OnInit {
     this.cartService.checkBadge();
   }
 
-  singOut(): void {
+  signOut(): void {
     this.dbService.delete(DBKey.CURRENT_AUTH);
     this.router.navigate(['/session/sign-in']);
   }

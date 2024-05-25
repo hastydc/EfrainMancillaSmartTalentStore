@@ -54,6 +54,7 @@ export class ListComponent implements OnInit {
             error: true,
             text: `${e.message}`,
           };
+          this.products = [];
           return of();
         }),
         finalize(() => {

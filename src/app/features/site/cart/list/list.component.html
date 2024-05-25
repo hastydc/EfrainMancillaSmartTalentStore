@@ -58,6 +58,7 @@
 
     <div class="cl__go">
       <app-button
+        [disabled]="products.length < 1"
         [label]="'goToCheckout'"
         [routerLink]="'/site/cart/checkout'"
       />

@@ -20,4 +20,12 @@ describe('SessionFormComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('action', () => {
+    const spy = spyOn(component.btnAction, 'emit').and.callThrough();
+
+    component.action();
+
+    expect(spy).toHaveBeenCalledTimes(1);
+  });
 });

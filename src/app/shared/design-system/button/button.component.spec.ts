@@ -20,4 +20,24 @@ describe('ButtonComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('action', () => {
+    const spy = spyOn(component.actionEvent, 'emit').and.callThrough();
+    component.disabled = false;
+    fixture.detectChanges();
+
+    component.action();
+
+    expect(spy).toHaveBeenCalledTimes(1);
+  });
+
+  it('action disabled', () => {
+    const spy = spyOn(component.actionEvent, 'emit').and.callThrough();
+    component.disabled = true;
+    fixture.detectChanges();
+
+    component.action();
+
+    expect(spy).toHaveBeenCalledTimes(0);
+  });
 });

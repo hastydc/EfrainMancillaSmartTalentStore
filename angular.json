@@ -92,7 +92,8 @@
             "stylePreprocessorOptions": {
               "includePaths": ["src/styles"]
             },
-            "scripts": []
+            "scripts": [],
+            "codeCoverageExclude": ["src/**/*.service.ts"]
           }
         }
       }
