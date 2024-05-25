@@ -1,0 +1,64 @@
+@import 'mixins';
+@import 'form';
+
+.co {
+}
+
+.form {
+  &__inputs,
+  &__resume {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: rem(32);
+
+    @include mq(tablet) {
+      width: calc(50% - rem(32));
+    }
+  }
+
+  &__detail-title {
+    font-weight: 700;
+    font-size: rem(32);
+  }
+
+  &__texts {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+  }
+
+  &__dashed {
+    display: flex;
+    flex: 1;
+    border-bottom: rem(1) dashed var(--color-black);
+
+    &--white {
+      border-bottom: rem(1) dashed var(--color-white);
+    }
+  }
+
+  &__x {
+    padding: 0 rem(4);
+    font-weight: 600;
+  }
+
+  &__text {
+    font-weight: 500;
+  }
+
+  &__price {
+    font-weight: 700;
+  }
+
+  &__total {
+    display: flex;
+    flex-direction: row;
+    font-weight: 700;
+    font-size: rem(20);
+    box-sizing: border-box;
+    padding: rem(16);
+    background-color: var(--color-green-dark);
+    color: var(--color-white);
+  }
+}

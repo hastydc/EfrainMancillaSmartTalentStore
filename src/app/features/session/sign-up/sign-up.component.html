@@ -1,0 +1,19 @@
+<section class="sign-in sign">
+  <div class="sign__wrapper">
+    <div class="sign__logo"><app-logo [big]="true" /></div>
+
+    <div class="sign__form-wrapper">
+      <div routerLink="/session/sign-in" class="sign__redirect">
+        {{ 'doYouAlreadyHaveAnAccountSignInHere' | translate }}
+      </div>
+
+      <div class="sign__form">
+        <app-session-form
+          [btnLabel]="'signUp'"
+          [signUp]="true"
+          (btnAction)="signUp($event)"
+        />
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,11 @@
+<ng-template cdkPortal>
+  <div class="toast" [ngClass]="{ 'toast--error': config.error }">
+    <i
+      [class]="'toast__icon fi fi-rs-' + (config.error ? 'cross' : 'check')"
+    ></i>
+
+    <span class="toast__text">
+      {{ config.text ?? '' | translate }}
+    </span>
+  </div>
+</ng-template>

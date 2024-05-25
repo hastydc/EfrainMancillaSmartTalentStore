@@ -1,0 +1,11 @@
+@import 'mixins';
+@import 'form';
+
+:host {
+  width: 100%;
+  display: flex;
+}
+
+.input {
+  cursor: pointer;
+}

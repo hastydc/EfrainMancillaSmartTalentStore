@@ -1,0 +1,25 @@
+@mixin mq($for) {
+  @if $for == mobile {
+    @media only screen and (max-width: 767px) {
+      @content;
+    }
+  } @else if $for == tablet {
+    @media only screen and (min-width: 767px) {
+      @content;
+    }
+  } @else if $for == desktop {
+    @media only screen and (min-width: 1024px) {
+      @content;
+    }
+  }
+}
+
+@function rem($value) {
+  @return calc($value / 16) + rem;
+}
+
+@mixin bg() {
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}

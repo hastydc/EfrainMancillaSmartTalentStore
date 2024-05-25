@@ -1,0 +1,84 @@
+@import 'mixins';
+
+.input {
+  width: 100%;
+  display: flex;
+  border: 0;
+  outline: none;
+  font-size: rem(20);
+  box-sizing: border-box;
+  padding: rem(2) rem(16);
+  border-bottom: rem(1) solid var(--color-green-dark);
+  margin: 0;
+  background-color: transparent;
+
+  &--radio {
+    border: 0;
+  }
+}
+
+.form {
+  flex-direction: column;
+  display: flex;
+  gap: rem(32);
+
+  @include mq(tablet) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: rem(64);
+  }
+
+  &__fieldset {
+    border: 0;
+    padding: 0;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+  }
+
+  &__label {
+    font-size: rem(12);
+  }
+
+  &__input {
+    border: 0;
+    width: 100%;
+  }
+
+  &__radio {
+    flex-direction: row-reverse;
+    align-items: center;
+
+    .form__input {
+      width: auto;
+      flex: 0 0 auto;
+    }
+
+    label {
+      flex: 1;
+      margin-left: rem(8);
+    }
+  }
+
+  &__inputs {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: rem(32);
+
+    @include mq(tablet) {
+      width: calc(50% - rem(32));
+    }
+  }
+
+  &__button {
+    margin: 0 auto;
+    width: rem(300);
+  }
+
+  &__error {
+    font-size: rem(12);
+    margin-top: rem(4);
+    color: var(--color-red);
+  }
+}

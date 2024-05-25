@@ -1,0 +1,71 @@
+<section class="pl">
+  <app-section-name
+    [url]="'/assets/images/bg/bg-admin.jpg'"
+    [text]="'exploreProducts'"
+  />
+
+  <div class="max-content padding-content pl__content">
+    <div class="pl__search pl-search">
+      <input
+        class="pl-search__input"
+        type="text"
+        [placeholder]="'browseProducts' | translate"
+        [(ngModel)]="search"
+        (ngModelChange)="filterProductsBySearch()"
+      />
+      <i class="pl-search__icon fi fi-rs-search"></i>
+    </div>
+
+    <div class="pl__products">
+      @if (products().length <= 0) {
+        <div class="pl__not-found">{{ 'productsNotFound' | translate }}</div>
+      } @else {
+        <div class="products">
+          @for (product of products(); track product.id) {
+            <article class="products__box">
+              <div class="products__img">
+                <i class="fi fi-rs-image-slash"></i>
+              </div>
+
+              <div class="products__info">
+                <div class="products__name">{{ product.name }}</div>
+                <div class="products__price">
+                  {{ product.price | currency }}
+                </div>
+                <div class="products__description">
+                  {{ product.description }}
+                </div>
+                <div class="products__stock">
+                  {{ 'availableUnits' | translate }}: &nbsp;
+                  <strong>{{ product.stock }}</strong>
+                </div>
+              </div>
+
+              <div class="products__action">
+                <input
+                  class="products__input"
+                  type="number"
+                  (keydown)="checkStock(product)"
+                  [(ngModel)]="productStock[product.id]"
+                  [disabled]="product.stock < 1"
+                  [placeholder]="'amount' | translate"
+                />
+                <div class="products__button">
+                  <app-button
+                    [disabled]="
+                      productStock[product.id] > product.stock ||
+                      product.stock < 1 ||
+                      !productStock[product.id]
+                    "
+                    label="{{ 'addToCart' | translate }}"
+                    (actionEvent)="addToCart(product)"
+                  />
+                </div>
+              </div>
+            </article>
+          }
+        </div>
+      }
+    </div>
+  </div>
+</section>

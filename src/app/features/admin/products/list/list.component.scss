@@ -1,0 +1,9 @@
+@import 'table';
+
+.apl {
+  &__button {
+    max-width: rem(300);
+    margin: 0 auto;
+    width: 100%;
+  }
+}

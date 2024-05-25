@@ -1,0 +1,45 @@
+@import 'mixins';
+
+.header {
+  display: flex;
+  width: 100%;
+  max-width: 100vw;
+  flex-direction: row;
+  padding: rem(32) rem(16);
+  box-sizing: border-box;
+  background-color: var(--color-green);
+  color: var(--color-white);
+  justify-content: center;
+  align-items: center;
+  font-size: rem(20);
+
+  &__logo {
+    flex: 1;
+  }
+
+  &__actions {
+    display: flex;
+    gap: rem(16);
+    align-items: center;
+  }
+
+  &__action {
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--color-white);
+    position: relative;
+  }
+
+  &__badge {
+    position: absolute;
+    width: rem(16);
+    height: rem(16);
+    border-radius: 100%;
+    top: rem(-8);
+    right: rem(-8);
+    background-color: var(--color-white);
+    font-size: rem(14);
+    color: var(--color-green);
+    text-align: center;
+  }
+}

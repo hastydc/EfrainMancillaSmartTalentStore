@@ -1,0 +1,125 @@
+<section class="co">
+  <app-section-name
+    [url]="'/assets/images/bg/bg-admin.jpg'"
+    [text]="'finishPurchase'"
+  />
+
+  <div class="max-content padding-content cl__content">
+    <form class="form form__content" [formGroup]="form" *ngIf="form">
+      <div class="form__inputs">
+        <div class="form__detail-title">{{ 'yourInfo' | translate }}</div>
+
+        <ng-container
+          *ngTemplateOutlet="
+            fieldset;
+            context: {
+              data: {
+                key: formKey.FULL_NAME,
+                label: 'fullName',
+                inputType: 'text'
+              }
+            }
+          "
+        />
+
+        <ng-container
+          *ngTemplateOutlet="
+            fieldset;
+            context: {
+              data: { key: formKey.PHONE, label: 'phone', inputType: 'text' }
+            }
+          "
+        />
+
+        <ng-container
+          *ngTemplateOutlet="
+            fieldset;
+            context: {
+              data: {
+                key: formKey.ADDRESS,
+                label: 'address',
+                inputType: 'text'
+              }
+            }
+          "
+        />
+      </div>
+
+      <div class="form__resume">
+        <div class="form__detail-title">{{ 'yourProducts' | translate }}</div>
+
+        <div class="form__detail">
+          @for (product of products; track product.id) {
+            <div class="form__texts">
+              <div class="form__text">{{ product.name }}</div>
+              <div class="form__x">x</div>
+              <div class="form__text">{{ product.amount }}</div>
+              <div class="form__dashed"></div>
+              <div class="form__price">{{ product.price | currency }}</div>
+            </div>
+          }
+        </div>
+
+        <div class="form__total">
+          <div class="form__text">{{ 'total' | translate }}</div>
+          <div class="form__dashed form__dashed--white"></div>
+          <div class="form__total-value">{{ total | currency }}</div>
+        </div>
+
+        <div class="form__payment">
+          <ng-container
+            *ngTemplateOutlet="
+              fieldset;
+              context: {
+                data: {
+                  key: formKey.PAYMENT_TYPE,
+                  label: 'payWithCash',
+                  inputType: 'radio'
+                }
+              }
+            "
+          />
+        </div>
+      </div>
+
+      <div class="form__button">
+        <app-button
+          [disabled]="form.invalid || !form.touched"
+          [label]="'buy'"
+          [mask]="true"
+          (actionEvent)="buy()"
+        />
+      </div>
+    </form>
+  </div>
+</section>
+
+<ng-template #fieldset let-data="data">
+  <fieldset
+    class="form__fieldset"
+    [ngClass]="{ form__radio: data.inputType === 'radio' }"
+  >
+    <label
+      class="form__label"
+      [ngClass]="{
+        'form__label--error':
+          form.controls[data.key].invalid && form.controls[data.key].touched
+      }"
+    >
+      {{ data.label | translate }}
+    </label>
+
+    <div class="form__input">
+      <app-input [form]="form" [key]="data.key" [inputType]="data.inputType" />
+    </div>
+
+    <div
+      class="form__error"
+      *ngIf="form.controls[data.key].invalid && form.controls[data.key].touched"
+    >
+      @if (form.controls[data.key].errors?.['required']) {
+        {{ 'fieldIsRequired' | translate: { field: (data.label | translate) } }}
+      }
+    </div>
+  </fieldset>
+</ng-template>

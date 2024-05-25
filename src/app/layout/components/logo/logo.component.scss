@@ -1,0 +1,32 @@
+@import 'mixins';
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: rem(8);
+  box-sizing: border-box;
+  cursor: pointer;
+
+  @include mq(tablet) {
+    justify-content: center;
+  }
+
+  &--customer {
+    @include mq(tablet) {
+      padding-left: rem(92);
+    }
+  }
+
+  &--big {
+    font-size: rem(32);
+    color: var(--color-green);
+
+    @include mq(tablet) {
+      font-size: rem(64);
+    }
+  }
+
+  &__text {
+    font-weight: 700;
+  }
+}

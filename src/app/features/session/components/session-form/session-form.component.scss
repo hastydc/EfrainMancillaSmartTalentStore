@@ -1,0 +1,10 @@
+@import 'form';
+@import 'mixins';
+
+.form {
+  &__inputs {
+    @include mq(tablet) {
+      width: 100%;
+    }
+  }
+}

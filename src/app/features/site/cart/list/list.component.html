@@ -1,0 +1,66 @@
+<section class="cl">
+  <app-section-name
+    [url]="'/assets/images/bg/bg-admin.jpg'"
+    [text]="'confirmProducts'"
+  />
+
+  <div class="max-content padding-content cl__content">
+    <div class="mt__table-wrapper">
+      <table class="mt__table">
+        <thead>
+          <tr>
+            <th></th>
+            <th class="mt__th">{{ 'name' | translate }}</th>
+            <th class="mt__th">{{ 'price' | translate }}</th>
+            <th class="mt__th">{{ 'stock' | translate }}</th>
+            <th class="mt__th mt__th--center">{{ 'amount' | translate }}</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (product of products; track product.id) {
+            <tr>
+              <td class="mt__td">
+                <div class="mt__img">
+                  <i class="fi fi-rs-image-slash"></i>
+                </div>
+              </td>
+              <td class="mt__td">{{ product.name }}</td>
+              <td class="mt__td">{{ product.price | currency }}</td>
+              <td class="mt__td">{{ product.stock }}</td>
+              <td class="mt__td">
+                <div class="products__action">
+                  <input
+                    class="products__input"
+                    type="number"
+                    (keydown)="checkStock(product)"
+                    [(ngModel)]="productStock[product.id]"
+                  />
+                  <app-button
+                    class="products__button"
+                    [disabled]="productStock[product.id] > product.stock"
+                    [label]="'addToCart' | translate"
+                    (actionEvent)="addToCart(product)"
+                  />
+                </div>
+              </td>
+              <td class="mt__td mt__td--btn">
+                <app-button
+                  (actionEvent)="deleteProduct(product.id)"
+                  [label]="'delete' | translate"
+                />
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+
+    <div class="cl__go">
+      <app-button
+        [label]="'goToCheckout'"
+        [routerLink]="'/site/cart/checkout'"
+      />
+    </div>
+  </div>
+</section>

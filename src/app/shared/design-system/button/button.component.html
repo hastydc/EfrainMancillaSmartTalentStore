@@ -1,0 +1,14 @@
+<button
+  class="button button--{{ size }}"
+  type="button"
+  [disabled]="disabled"
+  [ngClass]="{
+    'button--primary': primary,
+    'button--secondary': !primary,
+    'button--mask': mask,
+    'button--disabled': disabled
+  }"
+  (click)="action()"
+>
+  {{ label | translate }}
+</button>

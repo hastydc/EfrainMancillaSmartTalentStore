@@ -1,0 +1,10 @@
+@import 'mixins';
+@import 'products';
+@import 'table';
+
+.cl {
+  &__go {
+    width: rem(300);
+    margin: rem(32) auto rem(0);
+  }
+}

@@ -1,0 +1,47 @@
+@import 'mixins';
+
+.mt {
+  &__table-wrapper {
+    overflow-x: scroll;
+    width: 100%;
+    max-width: 100%;
+
+    @include mq(tablet) {
+      overflow: hidden;
+      width: 100%;
+    }
+  }
+
+  &__table {
+    width: max-content;
+
+    @include mq(tablet) {
+      width: 100%;
+    }
+  }
+
+  &__th {
+    text-align: left;
+    padding: rem(8) rem(16);
+
+    &--center {
+      text-align: center;
+    }
+  }
+
+  &__td {
+    padding: rem(8) rem(16);
+
+    &--btn {
+      min-width: rem(100);
+    }
+  }
+
+  &__img {
+    font-size: rem(32);
+
+    @include mq(tablet) {
+      font-size: rem(64);
+    }
+  }
+}

@@ -1,0 +1,19 @@
+@import 'mixins';
+
+.ts {
+  &__text {
+    font-size: rem(32);
+    text-align: center;
+    color: var(--color-green-dark);
+    font-weight: 700;
+
+    @include mq(tablet) {
+      font-size: rem(64);
+    }
+  }
+
+  &__button {
+    max-width: rem(300);
+    margin: rem(32) auto;
+  }
+}

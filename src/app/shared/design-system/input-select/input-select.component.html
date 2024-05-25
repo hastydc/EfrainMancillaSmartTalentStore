@@ -1,0 +1,13 @@
+<ng-container [formGroup]="form" *ngIf="form && key">
+  <select
+    class="input"
+    [ngClass]="{
+      'input--error': form.controls[key].invalid && form.controls[key].touched
+    }"
+    [formControlName]="key"
+  >
+    @for (option of options; track option.label) {
+      <option [value]="option.value">{{ option.label }}</option>
+    }
+  </select>
+</ng-container>

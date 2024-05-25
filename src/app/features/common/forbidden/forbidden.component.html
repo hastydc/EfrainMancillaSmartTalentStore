@@ -1,0 +1,11 @@
+<section class="ts">
+  <app-section-name [url]="'/assets/images/bg/bg-admin.jpg'" [text]="'503'" />
+
+  <div class="ts__text max-content padding-content">
+    {{ 'youDontHaveAccess' | translate }}
+  </div>
+
+  <div class="ts__button">
+    <app-button [label]="'signIn'" [routerLink]="'/session/sign-in'" />
+  </div>
+</section>

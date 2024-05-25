@@ -1,0 +1,17 @@
+<section class="ts">
+  <app-section-name
+    [url]="'/assets/images/bg/bg-admin.jpg'"
+    [text]="'successfulPurchase'"
+  />
+
+  <div class="ts__text max-content padding-content">
+    {{ 'thanksForYourPurchase' | translate }}
+  </div>
+
+  <div class="ts__button">
+    <app-button
+      [label]="'exploreMoreProducts'"
+      [routerLink]="'/site/products/list'"
+    />
+  </div>
+</section>

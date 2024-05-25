@@ -1,0 +1,11 @@
+<ng-container [formGroup]="form" *ngIf="form && key">
+  <input
+    [type]="inputType"
+    class="input"
+    [ngClass]="{
+      'input--error': form.controls[key].invalid && form.controls[key].touched,
+      'input--radio': inputType === 'radio'
+    }"
+    [formControlName]="key"
+  />
+</ng-container>

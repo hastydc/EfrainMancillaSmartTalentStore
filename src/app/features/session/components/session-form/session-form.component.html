@@ -1,0 +1,103 @@
+<section class="session-form">
+  <form class="form form__content" [formGroup]="form" *ngIf="form">
+    <div class="form__inputs">
+      <ng-container
+        *ngTemplateOutlet="
+          fieldset;
+          context: {
+            data: { key: formKey.EMAIL, label: 'email', inputType: 'text' }
+          }
+        "
+      />
+
+      <ng-container
+        *ngTemplateOutlet="
+          fieldset;
+          context: {
+            data: {
+              key: formKey.PASSWORD,
+              label: 'password',
+              inputType: 'password'
+            }
+          }
+        "
+      />
+
+      @if (signUp) {
+        <ng-container
+          *ngTemplateOutlet="
+            fieldset;
+            context: {
+              data: {
+                key: formKey.ROLE,
+                label: 'role',
+                inputType: 'select',
+                options: [
+                  { label: 'admin', value: role.ADMIN },
+                  { label: 'customer', value: role.CUSTOMER }
+                ]
+              }
+            }
+          "
+        />
+      }
+    </div>
+
+    <div class="form__button">
+      <app-button
+        [disabled]="form.invalid || !form.touched"
+        [label]="btnLabel"
+        [mask]="true"
+        (actionEvent)="action()"
+      />
+    </div>
+  </form>
+
+  <ng-template #fieldset let-data="data">
+    <fieldset class="form__fieldset">
+      <label
+        class="form__label"
+        [ngClass]="{
+          'form__label--error':
+            form.controls[data.key].invalid && form.controls[data.key].touched
+        }"
+      >
+        {{ data.label | translate }}
+      </label>
+
+      <div class="form__input">
+        @if (data.inputType === 'select') {
+          <app-input-select
+            [form]="form"
+            [key]="data.key"
+            [options]="data.options"
+          />
+        } @else {
+          <app-input
+            [form]="form"
+            [key]="data.key"
+            [inputType]="data.inputType"
+          />
+        }
+      </div>
+
+      <div
+        class="form__error"
+        *ngIf="
+          form.controls[data.key].invalid && form.controls[data.key].touched
+        "
+      >
+        @if (form.controls[data.key].errors?.['required']) {
+          {{
+            'fieldIsRequired' | translate: { field: (data.label | translate) }
+          }}
+        }
+        @if (form.controls[data.key].errors?.['email']) {
+          {{
+            'emailIsNotValid' | translate: { field: (data.label | translate) }
+          }}
+        }
+      </div>
+    </fieldset>
+  </ng-template>
+</section>

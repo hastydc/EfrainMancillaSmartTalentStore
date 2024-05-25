@@ -1,0 +1,51 @@
+@import 'mixins';
+@import 'vars';
+
+.sign {
+  @include bg();
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url('/assets/images/bg/bg-admin.jpg');
+  background-attachment: fixed;
+
+  &__wrapper {
+    background-color: rgba($white, 0.7);
+    box-sizing: border-box;
+    padding: rem(64) rem(32);
+    border-radius: rem(16);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    max-width: 90%;
+
+    @include mq(tablet) {
+      flex-direction: row;
+    }
+  }
+
+  &__logo {
+    width: 100%;
+
+    @include mq(tablet) {
+      width: 50%;
+    }
+  }
+
+  &__form-wrapper {
+    width: 100%;
+
+    @include mq(tablet) {
+      width: 50%;
+    }
+  }
+
+  &__redirect {
+    font-weight: 700;
+    margin-bottom: rem(32);
+    cursor: pointer;
+  }
+}

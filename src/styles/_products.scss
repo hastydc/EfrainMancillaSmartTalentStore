@@ -1,0 +1,27 @@
+@import 'mixins';
+
+.products {
+  &__action {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    border: rem(1) solid var(--color-green-dark);
+    border-radius: rem(16);
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: rem(2);
+    padding-left: rem(8);
+  }
+
+  &__input {
+    outline: none;
+    border: 0;
+    display: flex;
+    width: 50%;
+  }
+
+  &__button {
+    width: 50%;
+    display: flex;
+  }
+}

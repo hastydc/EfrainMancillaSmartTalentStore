@@ -1,0 +1,7 @@
+@import 'mixins';
+@import 'form';
+
+:host {
+  width: 100%;
+  display: flex;
+}

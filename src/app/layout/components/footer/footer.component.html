@@ -1,0 +1,21 @@
+<footer class="max-content footer">
+  <div class="footer__left">
+    <app-logo class="footer__logo" [big]="true" />
+
+    <div class="footer__text">{{ 'theBestProdcutsForYou' | translate }}</div>
+  </div>
+
+  <div class="footer__right">
+    <div class="footer__items">
+      <div class="footer-item__title">{{ 'site' | translate }}</div>
+
+      <div class="footer-item__text" [routerLink]="'/site/cart/checkout'">
+        {{ 'cart' | translate }}
+      </div>
+
+      <div class="footer-item__text" [routerLink]="'/site/products/list'">
+        {{ 'products' | translate }}
+      </div>
+    </div>
+  </div>
+</footer>

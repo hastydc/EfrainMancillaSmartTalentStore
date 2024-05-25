@@ -1,0 +1,30 @@
+@import 'mixins';
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  color: var(--color-black);
+}
+
+* {
+  transition: 0.5s ease-in-out;
+}
+
+.max-content {
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  gap: rem(32);
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.padding-content {
+  padding: rem(32);
+  box-sizing: border-box;
+
+  @include mq(tablet) {
+    padding: rem(64) rem(32);
+  }
+}
