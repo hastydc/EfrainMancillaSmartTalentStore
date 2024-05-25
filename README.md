@@ -25,3 +25,35 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## CUSTOM INSTRUCTIONS
+
+## -> Versiones
+
+Actualmente tengo Node v20.12.2, Angular Cli v17.3.6, Chrome v124.0.6367.119 (ambas versiones las últimas que descargué esta semana porque mi lap agoniza)
+
+## -> Compilar proyecto
+
+npm i con las versiones indicadas
+
+## -> Correr proyecto
+
+npx ng s | e ingresar a la url segun puerto indicado, en la consola para correrlo local, o bien un build y copiando y pegando el dist generado en algun servidor y asegurandonos de tener correcto el base href en el index.html
+
+## -> Correr pruebas
+
+ng test --code-coverage | y podemos validar el coverage tanto en el coverage/index.html como en la consola
+
+## -> Link del repo
+
+El link del repo (branch main en github master en bitbucket) de github es https://github.com/hastydc/EfrainMancillaSmartTalentStore
+
+## -> Instrucciones
+
+Primero debemos registrar un usuario tipo admin para crear los productos, y luego un usuario tipo cliente para realizar la compra
+El admin solo puede ingresar a las paginas del admin y el cliente solo puede ingresar a las paginas del cliente
+La DB ha sido improvisada en localStorage pero debidamente encriptada por seguridad
+
+## ---> Notas <---
+
+Lo realicé sobre la última versión de angular y con eso podemos validar que estamos preparados para asumir tanto un proyecto en versiones anteriores, como uno en sus últimas versiones.
