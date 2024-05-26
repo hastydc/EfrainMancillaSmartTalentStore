@@ -12,6 +12,12 @@
     font-weight: 600;
     font-size: rem(20);
   }
+
+  &__cart-btn {
+    width: rem(300);
+    margin: 0 auto;
+    margin-top: rem(32);
+  }
 }
 
 .pl-search {

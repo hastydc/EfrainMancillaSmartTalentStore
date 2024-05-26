@@ -48,11 +48,19 @@ ng test --code-coverage | y podemos validar el coverage tanto en el coverage/ind
 
 El link del repo (branch main en github master en bitbucket) de github es https://github.com/hastydc/EfrainMancillaSmartTalentStore
 
+## Link del sitio desplegado
+
+El sitio fue desplegado en godaddy y el link es https://efrainmancilla.pantera-studio.com/st-store/
+
 ## -> Instrucciones
 
 Primero debemos registrar un usuario tipo admin para crear los productos, y luego un usuario tipo cliente para realizar la compra
 El admin solo puede ingresar a las paginas del admin y el cliente solo puede ingresar a las paginas del cliente
 La DB ha sido improvisada en localStorage pero debidamente encriptada por seguridad
+
+## -> Deploy
+
+Desafortunadamente no logré desplegar la app en Azure debido a un error de al parecer permisos relacionado a mi cuenta, intente varias posibles soluciones sin exito y varias personas reportan el mismo error en los últimos días que podemos validar en el siguiente link https://github.com/microsoft/vscode-azureappservice/issues/2635
 
 ## ---> Notas <---
 

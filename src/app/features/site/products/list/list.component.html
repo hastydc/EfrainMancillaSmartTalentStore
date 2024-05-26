@@ -67,5 +67,11 @@
         </div>
       }
     </div>
+
+    @if (showCartBtn) {
+      <div class="pl__cart-btn">
+        <app-button [label]="'goToCart'" [routerLink]="'/site/cart/list'" />
+      </div>
+    }
   </div>
 </section>

@@ -13,6 +13,7 @@ import { CartService } from '../../../../shared/services/cart/cart.service';
 import { SectionNameComponent } from '../../../../shared/design-system/section-name/section-name.component';
 import { CommonModule } from '@angular/common';
 import { ButtonComponent } from '../../../../shared/design-system/button/button.component';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-list',
@@ -23,6 +24,7 @@ import { ButtonComponent } from '../../../../shared/design-system/button/button.
     SectionNameComponent,
     CommonModule,
     ButtonComponent,
+    RouterModule,
   ],
   templateUrl: './list.component.html',
   styleUrl: './list.component.scss',
@@ -39,6 +41,7 @@ export class ListComponent {
   products = signal<ProductData[]>([]);
   productStock: { [key: string]: number } = {};
   search: string = '';
+  showCartBtn: boolean = false;
 
   ngOnInit(): void {
     this.getProducts();
@@ -134,6 +137,7 @@ export class ListComponent {
       .subscribe({
         next: () => {
           this.productStock[productData.id] = 0;
+          this.showCartBtn = true;
         },
       });
   }

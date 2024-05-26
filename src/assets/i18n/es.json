@@ -59,5 +59,6 @@
   "doYouAlreadyHaveAnAccountSignInHere": "¿Ya tienes una cuenta? inicia sesión aquí",
   "pageNotFound": "Página no encontrada",
   "youDontHaveAccess": "No tienes permisos o no has iniciado sesión",
-  "create": "Crear"
+  "create": "Crear",
+  "goToCart": "Ir al carrito"
 }
